@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Version1.0.5 Release2013.05.02 -->
+
+<!ELEMENT html       (head, body) >
+
+<!ELEMENT head       (meta) >
+
+<!ELEMENT meta       EMPTY >
+<!ATTLIST meta       folder    CDATA     #IMPLIED
+                     section_id  CDATA     #IMPLIED
+                     date      CDATA     #IMPLIED
+                     lang      CDATA     #IMPLIED
+                     destination  CDATA     #IMPLIED
+                     revision  CDATA     #IMPLIED
+                     bookid    CDATA     #IMPLIED
+                     booktype  CDATA     #IMPLIED
+                     modelname  CDATA     #IMPLIED
+                     serialnbr  CDATA     #IMPLIED
+                     book_id   CDATA     #IMPLIED
+                     backcoverdate  CDATA     #IMPLIED >
+
+<!ELEMENT body       (section) >
+
+<!ELEMENT section    (group | newline)* >
+
+<!ELEMENT group      ((div | title), (ol | ul | p | figure | table | dl |
+                              div | newline)*) >
+<!ATTLIST group      introduction  (yes)     #IMPLIED
+                     section_id  CDATA     #IMPLIED
+                     sectionnumber  NMTOKENS  #IMPLIED >
+
+<!ELEMENT newline    EMPTY >
+<!ATTLIST newline    type      (page|all|column)  #IMPLIED >
+
+<!ELEMENT title      (#PCDATA | img | cite | small | sup)* >
+<!ATTLIST title      key       CDATA     #IMPLIED >
+
+<!ELEMENT ol         (li, (li | div)*) >
+
+<!ELEMENT ul         (li, (li | div)*) >
+<!ATTLIST ul         type      (bullet|none|asterisk|dash)  #REQUIRED >
+
+<!ELEMENT li         ((div | p), (p | figure | table | ol | ul | dl |
+                              div)*) >
+
+<!ELEMENT p          (#PCDATA | img | cite | a | pmlink | b | small | sup
+                              | refer | frlink)* >
+<!ATTLIST p          p_id      CDATA     #IMPLIED >
+
+<!ELEMENT dl         (dt?, dd) >
+<!ATTLIST dl         type      (warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|jobcode|penalty|jobtime)  #REQUIRED
+                     OM_id     CDATA     #IMPLIED >
+
+<!ELEMENT dt         (img | p)* >
+
+<!ELEMENT dd         ((ol | ul | p), (ol | ul | p | figure | table)*) >
+
+<!ELEMENT div        ((title?, (ol | ul | p | figure | table | dl | div |
+                              left | newline)*) | (ol | ul | p | figure |
+                              table | dl | div | left | newline)+) >
+<!ATTLIST div        span      (all)     #IMPLIED
+                     JPN       (JPN_)    #IMPLIED
+                     EXP       (EXP_)    #IMPLIED
+                     CE        (CE_)     #IMPLIED
+                     EU        (EU_)     #IMPLIED
+                     LX        (LX_)     #IMPLIED
+                     NA        (NA_)     #IMPLIED
+                     CHN       (CHN_)    #IMPLIED
+                     DEU       (DEU_)    #IMPLIED
+                     ESP       (ESP_)    #IMPLIED
+                     FRA       (FRA_)    #IMPLIED
+                     GBR       (GBR_)    #IMPLIED
+                     HAN       (HAN_)    #IMPLIED
+                     ITA       (ITA_)    #IMPLIED
+                     USA       (USA_)    #IMPLIED
+                     UK        (UK_)     #IMPLIED
+                     AU        (AU_)     #IMPLIED
+                     CN        (CN_)     #IMPLIED >
+
+<!ELEMENT left       (title | ol | ul | p | figure | table | dl | div |
+                              right)* >
+
+<!ELEMENT right      (title | ol | ul | p | figure | table | dl | div)* >
+
+<!ELEMENT table      (tabletitle?, thead?, tbody) >
+<!ATTLIST table      cols      NMTOKEN   #REQUIRED
+                     width     CDATA     #IMPLIED
+                     format    NMTOKEN   #IMPLIED
+                     tabletype  (all|none|graph|parttable|complement|kitpart|kitnbr|list|troubleshoot)  #REQUIRED
+                     fontsize  (8)       #IMPLIED
+                     align     (center|right)  #IMPLIED
+                     position  (up|down)  #IMPLIED >
+
+<!ELEMENT tabletitle (#PCDATA | img | cite | a | pmlink | b | small | sup
+                              | refer)* >
+
+<!ELEMENT thead      (tr+) >
+
+<!ELEMENT tbody      (tr+) >
+
+<!ELEMENT tr         (td+) >
+
+<!ELEMENT td         (p | ol | ul | dl)+ >
+<!ATTLIST td         hspan     CDATA     #IMPLIED
+                     vspan     CDATA     #IMPLIED
+                     rbdr      NMTOKEN   #IMPLIED
+                     cbdr      NMTOKEN   #IMPLIED
+                     rotate    NMTOKEN   #IMPLIED >
+
+<!ELEMENT figure     ((div | graphic)+, figuretitle?) >
+
+<!ELEMENT figuretitle 
+                     (p*) >
+
+<!ELEMENT graphic    EMPTY >
+<!ATTLIST graphic    file      CDATA     #IMPLIED
+                     dpi       NMTOKEN   #IMPLIED
+                     rasterdpi  NMTOKEN   #IMPLIED
+                     alt       CDATA     #IMPLIED
+                     impsize   CDATA     #IMPLIED
+                     impby     (ref|copy)  #IMPLIED
+                     sideways  NMTOKEN   #IMPLIED
+                     impang    CDATA     #IMPLIED
+                     xoffset   CDATA     #IMPLIED
+                     yoffset   CDATA     #IMPLIED
+                     position  NMTOKEN   #IMPLIED
+                     align     NMTOKEN   #IMPLIED
+                     cropped   NMTOKEN   #IMPLIED
+                     float     NMTOKEN   #IMPLIED
+                     width     CDATA     #IMPLIED
+                     height    CDATA     #IMPLIED
+                     angle     CDATA     #IMPLIED
+                     bloffset  CDATA     #IMPLIED
+                     nsoffset  CDATA     #IMPLIED
+                     insetdata  CDATA     #IMPLIED >
+
+<!ELEMENT img        EMPTY >
+<!ATTLIST img        file      CDATA     #IMPLIED
+                     dpi       NMTOKEN   #IMPLIED
+                     rasterdpi  NMTOKEN   #IMPLIED
+                     alt       CDATA     #IMPLIED
+                     impsize   CDATA     #IMPLIED
+                     impby     (ref|copy)  #IMPLIED
+                     sideways  NMTOKEN   #IMPLIED
+                     impang    CDATA     #IMPLIED
+                     xoffset   CDATA     #IMPLIED
+                     yoffset   CDATA     #IMPLIED
+                     position  NMTOKEN   #IMPLIED
+                     align     NMTOKEN   #IMPLIED
+                     cropped   NMTOKEN   #IMPLIED
+                     float     NMTOKEN   #IMPLIED
+                     width     CDATA     #IMPLIED
+                     height    CDATA     #IMPLIED
+                     angle     CDATA     #IMPLIED
+                     bloffset  CDATA     #IMPLIED
+                     nsoffset  CDATA     #IMPLIED
+                     insetdata  CDATA     #IMPLIED >
+
+<!ELEMENT a          EMPTY >
+<!ATTLIST a          id        IDREFS    #IMPLIED
+                     format    CDATA     #IMPLIED
+                     srcfile   CDATA     #IMPLIED >
+
+<!ELEMENT refer      (#PCDATA) >
+<!ATTLIST refer      id        CDATA     #IMPLIED
+                     object    CDATA     #IMPLIED
+                     format    CDATA     #IMPLIED >
+
+<!ELEMENT b          (#PCDATA) >
+
+<!ELEMENT pmlink     (#PCDATA) >
+
+<!ELEMENT sup        (#PCDATA) >
+
+<!ELEMENT small      (#PCDATA) >
+
+<!ELEMENT cite       (#PCDATA | a | sup | small | img | pmlink | refer)* >
+<!ATTLIST cite       id        ID        #IMPLIED >
+
+<!ELEMENT frlink     (#PCDATA) >
