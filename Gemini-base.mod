@@ -1,12 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                   ELEMENT NAME ENTITIES                       -->
+<!-- ============================================================= -->
 
-<!-- BARONESS Version1.0.5 Release2013.05.02 -->
-<!-- FRD      Version3.0.0 Release2014.03.07 -->
-<!-- SCM      Version2.0.0 Release2013.05.13 -->
-<!-- SCM      Version3.0.0SCM Release2014.05.07 -->
-<!-- SCM      Version3.0.1SCM Release2014.08.08 -->
-<!-- SCM      Version3.0.2SCM Release2015.09.02 -->
-<!-- SCM      Version3.0.3SCM Release2015.10.02 -->
+<!ENTITY % html         "html"                                       >
+
+
+<!-- ============================================================= -->
+<!--                   ATTLIST NAME ENTITIES                       -->
+<!-- ============================================================= -->
+
+<!-- 　　　　　　DIVの仕向け選択を関係社に応じて使い分ける　　　　　　　　　 -->
+<!ENTITY % div-destination
+                        "JPN       (JPN_)    #IMPLIED
+                         EXP       (EXP_)    #IMPLIED
+                         CE        (CE_)     #IMPLIED
+                         EU        (EU_)     #IMPLIED
+                         LX        (LX_)     #IMPLIED
+                         NA        (NA_)     #IMPLIED
+                         CHN       (CHN_)    #IMPLIED
+                         DEU       (DEU_)    #IMPLIED
+                         ESP       (ESP_)    #IMPLIED
+                         FRA       (FRA_)    #IMPLIED
+                         GBR       (GBR_)    #IMPLIED
+                         HAN       (HAN_)    #IMPLIED
+                         ITA       (ITA_)    #IMPLIED
+                         USA       (USA_)    #IMPLIED
+                         UK        (UK_)     #IMPLIED
+                         AU        (AU_)     #IMPLIED
+                         CN        (CN_)     #IMPLIED
+                         TUR        (TUR_)     #IMPLIED
+                         CC       (CC_)    #IMPLIED
+                         AUS       (AUS_)    #IMPLIED
+                         RUS       (RUS_)    #IMPLIED
+                         POL       (POL)    #IMPLIED
+                         THA       (THA_)    #IMPLIED
+                         NZL       (NZL_)    #IMPLIED
+                         TWN       (TWN_)    #IMPLIED
+                         IDN       (IDN_)    #IMPLIED
+                         MYS       (MYS_)    #IMPLIED
+                         ASIA       (ASIA_)    #IMPLIED " >
+
+<!-- 　　　　　　　　tableの選択を関係社に応じて使い分ける　　　　　　　　　 -->
+<!ENTITY % tabletype
+                        "tabletype  (all|none|graph|parttable|complement|kitpart|kitnbr|list|troubleshoot|img|flow)  #REQUIRED " >
+
+<!-- 　　　　　　　　olの選択を関係社に応じて使い分ける　　　　　　　　　 -->
+<!ENTITY % ol-type
+                        "" >
+
+<!-- 　　　　　　　　ulの選択を関係社に応じて使い分ける　　　　　　　　　 -->
+<!ENTITY % ul-type
+                        "type      (bullet|none|asterisk|dash)  #REQUIRED " >
+
+<!-- 　　　　　　　　dlの選択を関係社に応じて使い分ける　　　　　　　　　 -->
+<!ENTITY % dl-type
+                        "type      (warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|jobcode|penalty|jobtime)  #REQUIRED " >
+
+
+<!-- ============================================================= -->
+<!--                COMMON ELEMENT/ATTLIST SETS                    -->
+<!-- ============================================================= -->
 
 <!ELEMENT html       (head, body) >
 
@@ -42,56 +95,27 @@
 <!ATTLIST title      key       CDATA     #IMPLIED >
 
 <!ELEMENT ol         (li, (li | div)*) >
+<!ATTLIST ol         %ol-type; >
 
 <!ELEMENT ul         (li, (li | div)*) >
-<!ATTLIST ul         type      (bullet|none|asterisk|dash)  #REQUIRED >
+<!ATTLIST ul         %ul-type; >
 
 <!ELEMENT li         ((div | p), (p | figure | table | ol | ul | dl | div)*) >
 
-<!ELEMENT p          (#PCDATA | img | cite | a | pmlink | b | small | sup | refer | frlink)* ><!-- BARONESS GeminiVER1-0対応用 -->
-<!ELEMENT p          (#PCDATA | img | cite | pmlink | b | small | sup | refer | frlink)* ><!-- FRD GeminiVER2-0対応用 -->
+<!ELEMENT p          (#PCDATA | img | cite | pmlink | b | small | sup | refer | frlink)* >
 <!ATTLIST p          p_id      CDATA     #IMPLIED >
 
 <!ELEMENT dl         (dt?, dd) >
-<!ATTLIST dl         type      (warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|jobcode|penalty|jobtime)  #REQUIRED<!-- FRD/BARONESS -->
-<!ATTLIST dl         type      (warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|jobcode|penalty|jobtime|FIcover-introduction)  #REQUIRED<!-- SCM -->
+<!ATTLIST dl         %dl-type;
                      OM_id     CDATA     #IMPLIED >
 
 <!ELEMENT dt         (img | p)* >
 
 <!ELEMENT dd         ((ol | ul | p), (ol | ul | p | figure | table)*) >
 
-<!ELEMENT div        ((title?, (ol | ul | p | figure | table | dl | div | left | newline)*) | (ol | ul | p | figure | table | dl | div | left | newline)+) ><!-- BARONESS -->
-<!ELEMENT div        ((title, (ol | ul | p | figure | table | dl | div | left | newline)*) | (ol | ul | p | figure | table | dl | div | left | newline)+) ><!-- FRD/SCM -->
+<!ELEMENT div        ((title, (ol | ul | p | figure | table | dl | div | left | newline)*) | (ol | ul | p | figure | table | dl | div | left | newline)+) >
 <!ATTLIST div        span      (all)     #IMPLIED
-                     JPN       (JPN_)    #IMPLIED
-                     EXP       (EXP_)    #IMPLIED
-                     CE        (CE_)     #IMPLIED
-                     EU        (EU_)     #IMPLIED
-                     LX        (LX_)     #IMPLIED
-                     NA        (NA_)     #IMPLIED
-                     CHN       (CHN_)    #IMPLIED
-                     DEU       (DEU_)    #IMPLIED
-                     ESP       (ESP_)    #IMPLIED
-                     FRA       (FRA_)    #IMPLIED
-                     GBR       (GBR_)    #IMPLIED
-                     HAN       (HAN_)    #IMPLIED
-                     ITA       (ITA_)    #IMPLIED
-                     USA       (USA_)    #IMPLIED
-                     UK        (UK_)     #IMPLIED
-                     AU        (AU_)     #IMPLIED
-                     CN        (CN_)     #IMPLIED
-                     TUR        (TUR_)     #IMPLIED
-                     CC       (CC_)    #IMPLIED    <!-- FRD/BARONESSはここまで -->
-                     AUS       (AUS_)    #IMPLIED
-                     RUS       (RUS_)    #IMPLIED
-                     POL       (POL)    #IMPLIED
-                     THA       (THA_)    #IMPLIED
-                     NZL       (NZL_)    #IMPLIED
-                     TWN       (TWN_)    #IMPLIED
-                     IDN       (IDN_)    #IMPLIED
-                     MYS       (MYS_)    #IMPLIED
-                     ASIA       (ASIA_)    #IMPLIED ><!-- SCM -->
+                     %div-destination;>
 
 <!ELEMENT left       (title | ol | ul | p | figure | table | dl | div | right)* >
 
@@ -101,13 +125,11 @@
 <!ATTLIST table      cols      NMTOKEN   #REQUIRED
                      width     CDATA     #IMPLIED
                      format    NMTOKEN   #IMPLIED
-                     tabletype  (all|none|graph|parttable|complement|kitpart|kitnbr|list|troubleshoot)  #REQUIRED<!-- BARONESS/SCM -->
-                     tabletype  (all|none|graph|parttable|complement|kitpart|kitnbr|list|troubleshoot|img|flow)  #REQUIRED<!-- FRD -->
+                     %tabletype;
                      fontsize  (8)       #IMPLIED
-                     align     (center|right)  #IMPLIED
-                     position  (up|down)  #IMPLIED ><!-- BARONESS -->
-
-<!ELEMENT tabletitle (#PCDATA | img | cite | a | pmlink | b | small | sup | refer)* >
+                     align     (center|right)  #IMPLIED >
+                     
+<!ELEMENT tabletitle (#PCDATA | img | cite | pmlink | b | small | sup | refer)* >
 
 <!ELEMENT thead      (tr+) >
 
@@ -171,23 +193,10 @@
                      nsoffset  CDATA     #IMPLIED
                      insetdata  CDATA     #IMPLIED >
 
-<!-- aタグはBARONESSのみ -->
-<!ELEMENT a          EMPTY >
-<!ATTLIST a          id        IDREFS    #IMPLIED
-                     format    CDATA     #IMPLIED
-                     srcfile   CDATA     #IMPLIED >
-
-<!-- FRD -->
 <!ELEMENT refer      EMPTY >
 <!ATTLIST refer      id        CDATA     #REQUIRED
                      object    CDATA     #IMPLIED
                      format    (ref_text|page)  #REQUIRED >
-
-<!-- BARONESS -->
-<!ELEMENT refer      (#PCDATA) >
-<!ATTLIST refer      id        CDATA     #IMPLIED
-                     object    CDATA     #IMPLIED
-                     format    CDATA     #IMPLIED >
 
 <!ELEMENT b          (#PCDATA) >
 
@@ -197,8 +206,7 @@
 
 <!ELEMENT small      (#PCDATA) >
 
-<!ELEMENT cite       (#PCDATA | sup | small | img | pmlink | refer)* ><!-- FRD -->
-<!ELEMENT cite       (#PCDATA | a | sup | small | img | pmlink | refer)* ><!-- BARONESS -->
+<!ELEMENT cite       (#PCDATA | sup | small | img | pmlink | refer)* >
 <!ATTLIST cite       id        ID        #IMPLIED >
 
 <!ELEMENT frlink     (#PCDATA) >
