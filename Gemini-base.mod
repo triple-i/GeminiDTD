@@ -4,6 +4,8 @@
 
 <!ENTITY % html         "html"                                       >
 
+<!ENTITY % a             "a"                                         >
+
 
 <!-- ============================================================= -->
 <!--                   ATTLIST NAME ENTITIES                       -->
@@ -102,7 +104,7 @@
 
 <!ELEMENT li         ((div | p), (p | figure | table | ol | ul | dl | div)*) >
 
-<!ELEMENT p          (#PCDATA | img | cite | pmlink | b | small | sup | refer | frlink)* >
+<!ELEMENT p          (#PCDATA | img | cite | %a; | pmlink | b | small | sup | refer | frlink)* >
 <!ATTLIST p          p_id      CDATA     #IMPLIED >
 
 <!ELEMENT dl         (dt?, dd) >
@@ -129,7 +131,7 @@
                      fontsize  (8)       #IMPLIED
                      align     (center|right)  #IMPLIED >
                      
-<!ELEMENT tabletitle (#PCDATA | img | cite | pmlink | b | small | sup | refer)* >
+<!ELEMENT tabletitle (#PCDATA | img | cite | %a; | pmlink | b | small | sup | refer)* >
 
 <!ELEMENT thead      (tr+) >
 
@@ -193,11 +195,6 @@
                      nsoffset  CDATA     #IMPLIED
                      insetdata  CDATA     #IMPLIED >
 
-<!ELEMENT refer      EMPTY >
-<!ATTLIST refer      id        CDATA     #REQUIRED
-                     object    CDATA     #IMPLIED
-                     format    (ref_text|page)  #REQUIRED >
-
 <!ELEMENT b          (#PCDATA) >
 
 <!ELEMENT pmlink     (#PCDATA) >
@@ -206,7 +203,7 @@
 
 <!ELEMENT small      (#PCDATA) >
 
-<!ELEMENT cite       (#PCDATA | sup | small | img | pmlink | refer)* >
+<!ELEMENT cite       (#PCDATA | %a; | sup | small | img | pmlink | refer)* >
 <!ATTLIST cite       id        ID        #IMPLIED >
 
 <!ELEMENT frlink     (#PCDATA) >

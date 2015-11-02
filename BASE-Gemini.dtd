@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Version1.0.5 Release2013.05.02 -->
+<!-- BARONESS Version1.0.5 Release2013.05.02 -->
+<!-- FRD      Version3.0.0 Release2014.03.07 -->
+<!-- SCM      Version2.0.0 Release2013.05.13 -->
+<!-- SCM      Version3.0.0SCM Release2014.05.07 -->
+<!-- SCM      Version3.0.1SCM Release2014.08.08 -->
+<!-- SCM      Version3.0.2SCM Release2015.09.02 -->
+<!-- SCM      Version3.0.3SCM Release2015.10.02 -->
 
 <!ELEMENT html       (head, body) >
 
@@ -24,8 +30,7 @@
 
 <!ELEMENT section    (group | newline)* >
 
-<!ELEMENT group      ((div | title), (ol | ul | p | figure | table | dl |
-                              div | newline)*) >
+<!ELEMENT group      ((div | title), (ol | ul | p | figure | table | dl | div | newline)*) >
 <!ATTLIST group      introduction  (yes)     #IMPLIED
                      section_id  CDATA     #IMPLIED
                      sectionnumber  NMTOKENS  #IMPLIED >
@@ -41,24 +46,23 @@
 <!ELEMENT ul         (li, (li | div)*) >
 <!ATTLIST ul         type      (bullet|none|asterisk|dash)  #REQUIRED >
 
-<!ELEMENT li         ((div | p), (p | figure | table | ol | ul | dl |
-                              div)*) >
+<!ELEMENT li         ((div | p), (p | figure | table | ol | ul | dl | div)*) >
 
-<!ELEMENT p          (#PCDATA | img | cite | a | pmlink | b | small | sup
-                              | refer | frlink)* >
+<!ELEMENT p          (#PCDATA | img | cite | a | pmlink | b | small | sup | refer | frlink)* ><!-- BARONESS GeminiVER1-0対応用 -->
+<!ELEMENT p          (#PCDATA | img | cite | pmlink | b | small | sup | refer | frlink)* ><!-- FRD GeminiVER2-0対応用 -->
 <!ATTLIST p          p_id      CDATA     #IMPLIED >
 
 <!ELEMENT dl         (dt?, dd) >
-<!ATTLIST dl         type      (warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|jobcode|penalty|jobtime)  #REQUIRED
+<!ATTLIST dl         type      (warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|jobcode|penalty|jobtime)  #REQUIRED<!-- FRD/BARONESS -->
+<!ATTLIST dl         type      (warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|jobcode|penalty|jobtime|FIcover-introduction)  #REQUIRED<!-- SCM -->
                      OM_id     CDATA     #IMPLIED >
 
 <!ELEMENT dt         (img | p)* >
 
 <!ELEMENT dd         ((ol | ul | p), (ol | ul | p | figure | table)*) >
 
-<!ELEMENT div        ((title?, (ol | ul | p | figure | table | dl | div |
-                              left | newline)*) | (ol | ul | p | figure |
-                              table | dl | div | left | newline)+) >
+<!ELEMENT div        ((title?, (ol | ul | p | figure | table | dl | div | left | newline)*) | (ol | ul | p | figure | table | dl | div | left | newline)+) ><!-- BARONESS -->
+<!ELEMENT div        ((title, (ol | ul | p | figure | table | dl | div | left | newline)*) | (ol | ul | p | figure | table | dl | div | left | newline)+) ><!-- FRD/SCM -->
 <!ATTLIST div        span      (all)     #IMPLIED
                      JPN       (JPN_)    #IMPLIED
                      EXP       (EXP_)    #IMPLIED
@@ -76,10 +80,20 @@
                      USA       (USA_)    #IMPLIED
                      UK        (UK_)     #IMPLIED
                      AU        (AU_)     #IMPLIED
-                     CN        (CN_)     #IMPLIED >
+                     CN        (CN_)     #IMPLIED
+                     TUR        (TUR_)     #IMPLIED
+                     CC       (CC_)    #IMPLIED    <!-- FRD/BARONESSはここまで -->
+                     AUS       (AUS_)    #IMPLIED
+                     RUS       (RUS_)    #IMPLIED
+                     POL       (POL)    #IMPLIED
+                     THA       (THA_)    #IMPLIED
+                     NZL       (NZL_)    #IMPLIED
+                     TWN       (TWN_)    #IMPLIED
+                     IDN       (IDN_)    #IMPLIED
+                     MYS       (MYS_)    #IMPLIED
+                     ASIA       (ASIA_)    #IMPLIED ><!-- SCM -->
 
-<!ELEMENT left       (title | ol | ul | p | figure | table | dl | div |
-                              right)* >
+<!ELEMENT left       (title | ol | ul | p | figure | table | dl | div | right)* >
 
 <!ELEMENT right      (title | ol | ul | p | figure | table | dl | div)* >
 
@@ -87,13 +101,15 @@
 <!ATTLIST table      cols      NMTOKEN   #REQUIRED
                      width     CDATA     #IMPLIED
                      format    NMTOKEN   #IMPLIED
-                     tabletype  (all|none|graph|parttable|complement|kitpart|kitnbr|list|troubleshoot)  #REQUIRED
+                     tabletype  (all|none|graph|parttable|complement|kitpart|kitnbr|list|troubleshoot)  #REQUIRED<!-- BARONESS/SCM -->
+                     tabletype  (all|none|graph|parttable|complement|kitpart|kitnbr|list|troubleshoot|img|flow)  #REQUIRED<!-- FRD -->
                      fontsize  (8)       #IMPLIED
                      align     (center|right)  #IMPLIED
-                     position  (up|down)  #IMPLIED >
+                     position  (up|down)  #IMPLIED ><!-- BARONESS -->
 
-<!ELEMENT tabletitle (#PCDATA | img | cite | a | pmlink | b | small | sup
-                              | refer)* >
+
+<!ELEMENT tabletitle (#PCDATA | img | cite | pmlink | b | small | sup | refer)* ><!-- FRD/SCM -->
+<!ELEMENT tabletitle (#PCDATA | img | cite | a | pmlink | b | small | sup | refer)* ><!-- BARONESS -->
 
 <!ELEMENT thead      (tr+) >
 
@@ -157,11 +173,19 @@
                      nsoffset  CDATA     #IMPLIED
                      insetdata  CDATA     #IMPLIED >
 
+<!-- aタグはBARONESSのみ -->
 <!ELEMENT a          EMPTY >
 <!ATTLIST a          id        IDREFS    #IMPLIED
                      format    CDATA     #IMPLIED
                      srcfile   CDATA     #IMPLIED >
 
+<!-- FRD/SCM -->
+<!ELEMENT refer      EMPTY >
+<!ATTLIST refer      id        CDATA     #REQUIRED
+                     object    CDATA     #IMPLIED
+                     format    (ref_text|page)  #REQUIRED >
+
+<!-- BARONESS -->
 <!ELEMENT refer      (#PCDATA) >
 <!ATTLIST refer      id        CDATA     #IMPLIED
                      object    CDATA     #IMPLIED
@@ -175,7 +199,8 @@
 
 <!ELEMENT small      (#PCDATA) >
 
-<!ELEMENT cite       (#PCDATA | a | sup | small | img | pmlink | refer)* >
+<!ELEMENT cite       (#PCDATA | sup | small | img | pmlink | refer)* ><!-- FRD -->
+<!ELEMENT cite       (#PCDATA | a | sup | small | img | pmlink | refer)* ><!-- BARONESS -->
 <!ATTLIST cite       id        ID        #IMPLIED >
 
 <!ELEMENT frlink     (#PCDATA) >
