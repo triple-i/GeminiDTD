@@ -4,34 +4,21 @@
 
 <!ENTITY % html         "html"                                       >
 
-<!ENTITY % a             "a"                                         >
-
 
 <!-- ============================================================= -->
-<!--                   ATTLIST NAME ENTITIES                       -->
+<!--                   COMMON ATTLIST NAME ENTITIES                -->
 <!-- ============================================================= -->
-
 <!-- 　　　　　　DIVの仕向け選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % div-destination
                         "JPN       (JPN_)    #IMPLIED
                          EXP       (EXP_)    #IMPLIED
-                         CE        (CE_)     #IMPLIED
-                         EU        (EU_)     #IMPLIED
-                         LX        (LX_)     #IMPLIED
-                         NA        (NA_)     #IMPLIED
                          CHN       (CHN_)    #IMPLIED
                          DEU       (DEU_)    #IMPLIED
                          ESP       (ESP_)    #IMPLIED
                          FRA       (FRA_)    #IMPLIED
-                         GBR       (GBR_)    #IMPLIED
-                         HAN       (HAN_)    #IMPLIED
                          ITA       (ITA_)    #IMPLIED
                          USA       (USA_)    #IMPLIED
-                         UK        (UK_)     #IMPLIED
-                         AU        (AU_)     #IMPLIED
-                         CN        (CN_)     #IMPLIED
                          TUR        (TUR_)     #IMPLIED
-                         CC       (CC_)    #IMPLIED
                          AUS       (AUS_)    #IMPLIED
                          RUS       (RUS_)    #IMPLIED
                          POL       (POL)    #IMPLIED
@@ -39,26 +26,23 @@
                          NZL       (NZL_)    #IMPLIED
                          TWN       (TWN_)    #IMPLIED
                          IDN       (IDN_)    #IMPLIED
-                         MYS       (MYS_)    #IMPLIED
-                         ASIA       (ASIA_)    #IMPLIED " >
+                         MYS       (MYS_)    #IMPLIED">
+
 
 <!-- 　　　　　　　　tableの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % tabletype
-                        "tabletype  (all|none|graph|parttable|complement|kitpart|kitnbr|list|troubleshoot|img|flow)  #REQUIRED " >
-
-<!-- 　　　　　　　　olの選択を関係社に応じて使い分ける　　　　　　　　　 -->
-<!ENTITY % ol-type
-                        "" >
+                        "all|none|graph|parttable|complement|kitpart|kitnbr|list|img" >
 
 <!-- 　　　　　　　　ulの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % ul-type
-                        "type      (bullet|none|asterisk|dash)  #REQUIRED " >
+                        "bullet|none|asterisk|dash" >
+
 
 <!-- 　　　　　　　　dlの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % dl-type
-                        "type      (warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|jobcode|penalty|jobtime)  #REQUIRED " >
-
-
+                        "warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|penalty" >
+                        
+                        
 <!-- ============================================================= -->
 <!--                COMMON ELEMENT/ATTLIST SETS                    -->
 <!-- ============================================================= -->
@@ -97,18 +81,18 @@
 <!ATTLIST title      key       CDATA     #IMPLIED >
 
 <!ELEMENT ol         (li, (li | div)*) >
-<!ATTLIST ol         %ol-type; >
+<!--  <!ATTLIST ol         type (%ol-type-subs;)   #IMPLIED > -->
 
 <!ELEMENT ul         (li, (li | div)*) >
-<!ATTLIST ul         %ul-type; >
+<!ATTLIST ul         type      (%ul-type;)  #REQUIRED  >
 
 <!ELEMENT li         ((div | p), (p | figure | table | ol | ul | dl | div)*) >
 
-<!ELEMENT p          (#PCDATA | img | cite | %a; | pmlink | b | small | sup | refer | frlink)* >
+<!ELEMENT p          (#PCDATA | img | cite %a; | pmlink | b | small | sup | refer | frlink)* >
 <!ATTLIST p          p_id      CDATA     #IMPLIED >
 
 <!ELEMENT dl         (dt?, dd) >
-<!ATTLIST dl         %dl-type;
+<!ATTLIST dl         type      (%dl-type; | %dl-type-subs;)  #REQUIRED
                      OM_id     CDATA     #IMPLIED >
 
 <!ELEMENT dt         (img | p)* >
@@ -117,7 +101,8 @@
 
 <!ELEMENT div        ((title, (ol | ul | p | figure | table | dl | div | left | newline)*) | (ol | ul | p | figure | table | dl | div | left | newline)+) >
 <!ATTLIST div        span      (all)     #IMPLIED
-                     %div-destination;>
+                     %div-destination;
+                     %div-destination-subs;>
 
 <!ELEMENT left       (title | ol | ul | p | figure | table | dl | div | right)* >
 
@@ -127,11 +112,11 @@
 <!ATTLIST table      cols      NMTOKEN   #REQUIRED
                      width     CDATA     #IMPLIED
                      format    NMTOKEN   #IMPLIED
-                     %tabletype;
+                     tabletype  (%tabletype; | %tabletype-subs;)  #REQUIRED 
                      fontsize  (8)       #IMPLIED
-                     align     (center|right)  #IMPLIED >
+                     align     (center | right)  #IMPLIED >
                      
-<!ELEMENT tabletitle (#PCDATA | img | cite | %a; | pmlink | b | small | sup | refer)* >
+<!ELEMENT tabletitle (#PCDATA | img | cite %a; | pmlink | b | small | sup | refer)* >
 
 <!ELEMENT thead      (tr+) >
 
@@ -195,6 +180,11 @@
                      nsoffset  CDATA     #IMPLIED
                      insetdata  CDATA     #IMPLIED >
 
+<!ELEMENT refer      EMPTY >
+<!ATTLIST refer      %refer;
+                     object    CDATA     #IMPLIED
+                     format    (ref_text|page)  #REQUIRED >
+
 <!ELEMENT b          (#PCDATA) >
 
 <!ELEMENT pmlink     (#PCDATA) >
@@ -203,7 +193,7 @@
 
 <!ELEMENT small      (#PCDATA) >
 
-<!ELEMENT cite       (#PCDATA | %a; | sup | small | img | pmlink | refer)* >
+<!ELEMENT cite       (#PCDATA %a; | sup | small | img | pmlink | refer)* >
 <!ATTLIST cite       id        ID        #IMPLIED >
 
 <!ELEMENT frlink     (#PCDATA) >
