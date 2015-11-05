@@ -10,7 +10,3 @@
 <!-- ============================================================= -->
 
 <!-- 　　　　　　　　旧Gemini用にaタグ処理を追加する　　　　　　　　　　　　 -->
-<!ELEMENT a          EMPTY >
-<!ATTLIST a          id        IDREFS    #IMPLIED
-                     format    CDATA     #IMPLIED
-                     srcfile   CDATA     #IMPLIED >
