@@ -41,8 +41,8 @@
 <!-- 　　　　　　　　dlの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % dl-type
                         "warning|caution|danger|important|hint|information|annotation|note_caution|example|advice|memo|penalty" >
-                        
-                        
+
+
 <!-- ============================================================= -->
 <!--                COMMON ELEMENT/ATTLIST SETS                    -->
 <!-- ============================================================= -->
@@ -181,7 +181,7 @@
                      insetdata  CDATA     #IMPLIED >
 
 <!ELEMENT refer      EMPTY >
-<!ATTLIST refer      %refer;
+<!ATTLIST refer      id        CDATA     #REQUIRED
                      object    CDATA     #IMPLIED
                      format    (ref_text|page)  #REQUIRED >
 

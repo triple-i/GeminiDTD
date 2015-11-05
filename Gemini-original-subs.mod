@@ -37,10 +37,5 @@
                         "jobcode|jobtime|FIcover-introduction" >
 
 
-<!-- 　　　　　　　　referの挙動を新旧のGeminiに応じて使い分ける　　　　　　　　　 -->
-<!ENTITY % refer
-                        "id        CDATA     #REQUIRED" >
-
-
 <!-- 　　　　　　　　旧Gemini用にaタグ処理の挿入を追加する　　　　　　　　　 -->
 <!ENTITY % a            "|a"                                          >
