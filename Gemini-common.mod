@@ -16,6 +16,7 @@
                          DEU       (DEU_)    #IMPLIED
                          ESP       (ESP_)    #IMPLIED
                          FRA       (FRA_)    #IMPLIED
+                         GBR       (GBR_)    #IMPLIED
                          ITA       (ITA_)    #IMPLIED
                          USA       (USA_)    #IMPLIED
                          TUR        (TUR_)     #IMPLIED
@@ -31,7 +32,7 @@
 
 <!-- 　　　　　　　　tableの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % tabletype
-                        "all|none|graph|parttable|complement|kitpart|kitnbr|list|img|troubleshoot" >
+                        "all|none|graph|parttable|complement|kitpart|kitnbr|list|troubleshoot" >
 
 <!-- 　　　　　　　　ulの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % ul-type

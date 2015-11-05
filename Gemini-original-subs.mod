@@ -12,7 +12,6 @@
                          EU        (EU_)     #IMPLIED
                          LX        (LX_)     #IMPLIED
                          NA        (NA_)     #IMPLIED
-                         GBR       (GBR_)    #IMPLIED
                          HAN       (HAN_)    #IMPLIED
                          AU        (AU_)     #IMPLIED
                          CC       (CC_)    #IMPLIED
