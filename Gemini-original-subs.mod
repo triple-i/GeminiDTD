@@ -8,21 +8,13 @@
 
 <!-- 　　　　　　DIVの仕向け選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % div-destination-subs
-                        "CE        (CE_)     #IMPLIED
-                         EU        (EU_)     #IMPLIED
-                         LX        (LX_)     #IMPLIED
-                         NA        (NA_)     #IMPLIED
-                         GBR       (GBR_)    #IMPLIED
-                         HAN       (HAN_)    #IMPLIED
+                        "GBR       (GBR_)    #IMPLIED
                          UK        (UK_)     #IMPLIED
-                         AU        (AU_)     #IMPLIED
-                         CN        (CN_)     #IMPLIED
-                         CC       (CC_)    #IMPLIED
-                         ASIA       (ASIA_)    #IMPLIED " >
+                         CN        (CN_)     #IMPLIED" >
 
 <!-- 　　　　　　　　tableの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % tabletype-subs
-                        "|img|flow" >
+                        "" >
 
 <!-- 　　　　　　　　olの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % ol-type-subs
@@ -34,7 +26,7 @@
 
 <!-- 　　　　　　　　dlの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % dl-type-subs
-                        "|jobcode|jobtime|FIcover-introduction" >
+                        "" >
 
 
 <!-- 　　　　　　　　旧Gemini用にaタグ処理の挿入を追加する　　　　　　　　　 -->
