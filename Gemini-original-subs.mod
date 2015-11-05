@@ -8,8 +8,7 @@
 
 <!-- 　　　　　　DIVの仕向け選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % div-destination-subs
-                        "GBR       (GBR_)    #IMPLIED
-                         UK        (UK_)     #IMPLIED
+                        "UK        (UK_)     #IMPLIED
                          CN        (CN_)     #IMPLIED" >
 
 <!-- 　　　　　　　　tableの選択を関係社に応じて使い分ける　　　　　　　　　 -->
