@@ -2,21 +2,21 @@
 
 
 <!-- ============================================================= -->
-<!--                Reference sub ELEMENT/ATTLIST SETS             -->
+<!--            Reference sub ORIGINAL ELEMENT/ATTLIST SETS        -->
 <!-- ============================================================= -->
-<!ENTITY % sub-Gemini-DTD PUBLIC "-//GeminiDTD" "Gemini-subs.mod"    >
+<!ENTITY % sub-Gemini-DTD PUBLIC "-//GeminiDTD" "Gemini-original-subs.mod"     >
 %sub-Gemini-DTD;
 
 
 <!-- ============================================================= -->
 <!--                Reference COMMON ELEMENT/ATTLIST SETS          -->
 <!-- ============================================================= -->
-<!ENTITY % html PUBLIC "-//GeminiDTD" "Gemini-base.mod"              >
+<!ENTITY % html PUBLIC "-//GeminiDTD" "Gemini-common.mod"                      >
 %html;
 
 
 <!-- ============================================================= -->
 <!--            Reference Ver1.0 Gemini ELEMENT/ATTLIST SETS       -->
 <!-- ============================================================= -->
-<!ENTITY % a-tag PUBLIC "-//GeminiDTD" "Gemini-ver1-0.mod"              >
+<!ENTITY % a-tag PUBLIC "-//GeminiDTD" "Gemini-use-ver1-0supported.mod"        >
 %a-tag;
