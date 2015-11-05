@@ -22,7 +22,7 @@
 
 <!-- 　　　　　　　　tableの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % tabletype-subs
-                        "troubleshoot|flow" >
+                        "|img|flow" >
 
 <!-- 　　　　　　　　olの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % ol-type-subs
@@ -34,7 +34,7 @@
 
 <!-- 　　　　　　　　dlの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % dl-type-subs
-                        "jobcode|jobtime|FIcover-introduction" >
+                        "|jobcode|jobtime|FIcover-introduction" >
 
 
 <!-- 　　　　　　　　旧Gemini用にaタグ処理の挿入を追加する　　　　　　　　　 -->

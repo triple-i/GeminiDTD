@@ -31,7 +31,7 @@
 
 <!-- 　　　　　　　　tableの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % tabletype
-                        "all|none|graph|parttable|complement|kitpart|kitnbr|list|img" >
+                        "all|none|graph|parttable|complement|kitpart|kitnbr|list|img|troubleshoot" >
 
 <!-- 　　　　　　　　ulの選択を関係社に応じて使い分ける　　　　　　　　　 -->
 <!ENTITY % ul-type
@@ -92,7 +92,7 @@
 <!ATTLIST p          p_id      CDATA     #IMPLIED >
 
 <!ELEMENT dl         (dt?, dd) >
-<!ATTLIST dl         type      (%dl-type; | %dl-type-subs;)  #REQUIRED
+<!ATTLIST dl         type      (%dl-type; %dl-type-subs;)  #REQUIRED
                      OM_id     CDATA     #IMPLIED >
 
 <!ELEMENT dt         (img | p)* >
@@ -112,7 +112,7 @@
 <!ATTLIST table      cols      NMTOKEN   #REQUIRED
                      width     CDATA     #IMPLIED
                      format    NMTOKEN   #IMPLIED
-                     tabletype  (%tabletype; | %tabletype-subs;)  #REQUIRED 
+                     tabletype  (%tabletype; %tabletype-subs;)  #REQUIRED 
                      fontsize  (8)       #IMPLIED
                      align     (center | right)  #IMPLIED >
                      
