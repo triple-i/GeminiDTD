@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Version1.0.8 Release2015.09.02 -->
+<!-- Version2.0.0 Release2015.10.10 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:output method="xml" version="1.0" indent="yes" encoding="UTF-8" />
 
@@ -311,9 +312,6 @@
 			<xsl:if test="@GBR">
 				<xsl:attribute name="GBR"><xsl:value-of select="@GBR" /></xsl:attribute>
 			</xsl:if>
-			<xsl:if test="@HAN">
-				<xsl:attribute name="HAN"><xsl:value-of select="@HAN" /></xsl:attribute>
-			</xsl:if>
 			<xsl:if test="@ITA">
 				<xsl:attribute name="ITA"><xsl:value-of select="@ITA" /></xsl:attribute>
 			</xsl:if>
@@ -323,9 +321,9 @@
 			<xsl:if test="@UK">
 				<xsl:attribute name="UK"><xsl:value-of select="@UK" /></xsl:attribute>
 			</xsl:if>
-			<!--xsl:if test="@HANTA">
+			<xsl:if test="@HANTA">
 				<xsl:attribute name="HANTA"><xsl:value-of select="@HANTA" /></xsl:attribute>
-			</xsl:if-->
+			</xsl:if>
 			<xsl:if test="@AU">
 				<xsl:attribute name="AU"><xsl:value-of select="@AU" /></xsl:attribute>
 			</xsl:if>
